@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class Search extends React.Component {
+export default class UrlInput extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -9,7 +9,6 @@ export default class Search extends React.Component {
   }
 
   handleInputChange(e) {
-    this.props.handleSearchInputChange(e.target.value);
     this.setState({
       value: e.target.value
     });
@@ -19,10 +18,9 @@ export default class Search extends React.Component {
     return (
      <div>
         <input
-          className="search-field"
+          className="Url-field"
           type="text"
           value={this.state.value}
-          onChange={this.handleInputChange.bind(this)}
         />
       </div>);
   }
