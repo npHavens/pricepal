@@ -40,7 +40,7 @@ export default class App extends React.Component {
     .then(function(res) {
       //console.log(res);
       this.setState({
-      products: res
+      products: res.data
     });
       console.log(this.state.products)
     }.bind(this))
@@ -65,9 +65,8 @@ export default class App extends React.Component {
           handleUrlInput={this.setUrl.bind(this)}
           handleQtyInput={this.setQty.bind(this)}
         />
-        <FavoritesList
-          products={this.state.products}
-        />
+        {!this.state.products ? <p>Loading</p> :
+        <FavoritesList products={this.state.products}/>}
     </div>);
   }
 }
