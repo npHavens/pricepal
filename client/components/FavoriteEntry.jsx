@@ -4,7 +4,12 @@ let FavoriteEntry = (props) => (
     <li className="list-group-item">
       <a src={props.product.url}>{props.product.title}</a>
       <a> Quantity Left: {props.product.qtyPurchased} </a>
-      <a> Remove from Favorites </a>
+      <button
+          className="btn"
+          id="remove"
+          type="remove"
+          onClick=''
+        >Remove</button>
     </li>
 );
 
