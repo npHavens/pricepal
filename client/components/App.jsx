@@ -47,8 +47,6 @@ export default class App extends React.Component {
     console.log('Getting saved products');
     axios.get('http://localhost:4568/')
     .then(function(res) {
-      //console.log(res);
-      console.log(res.data)
       this.setState({
       products: res.data
     });
@@ -57,7 +55,7 @@ export default class App extends React.Component {
   }
 
   addProduct() {
-    //console.log('Adding Product', this.state);
+    console.log('Adding Product');
     axios.post('http://localhost:4568/products',
       {
         title: this.state.currentProductTitle,
@@ -65,8 +63,8 @@ export default class App extends React.Component {
         datePurchased: new Date,
         qtyPurchased: this.state.currentQty
       }).then(function(res) {
-        this.getSavedProducts();
-      });
+          this.getSavedProducts();
+      }.bind(this));
   }
 
   render() {
