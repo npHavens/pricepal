@@ -7,11 +7,18 @@ let FavoritesList = (props) => (
       {JSON.stringify(props.products.length) + ' '}
       Saved Products
     </label>
-    <ul className="list-group" id="favorites">
+    <table className="table table-hover" id="favorites">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Date Purchased</th>
+          <th>Quantity Left</th>
+        </tr>
+      </thead>
       {props.products.map((product, i) => {
         return <FavoriteEntry product={product} key={i}/>
       })}
-    </ul>
+    </table>
   </div>
 );
 

@@ -4,6 +4,7 @@ import UrlInput from './UrlInput.jsx';
 import ProductInfoForm from './ProductInfoForm.jsx';
 import FavoritesList from './FavoritesList.jsx'
 import axios from 'axios';
+import moment from 'moment';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -60,7 +61,7 @@ export default class App extends React.Component {
       {
         title: this.state.currentProductTitle,
         url: this.state.currentProductUrl,
-        datePurchased: new Date,
+        datePurchased: new moment().format('MMMM Do YYYY'),
         qtyPurchased: this.state.currentQty
       }).then(function(res) {
           this.getSavedProducts();

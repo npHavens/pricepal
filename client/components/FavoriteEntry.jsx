@@ -1,16 +1,21 @@
 import React from 'react';
+import moment from 'moment';
 
 let FavoriteEntry = (props) => (
-    <li className="list-group-item">
-      <a src={props.product.url}>{props.product.title}</a>
-      <a> Quantity Left: {props.product.qtyPurchased} </a>
-      <button
-          className="btn"
-          id="remove"
-          type="remove"
-          onClick=''
-        >Remove</button>
-    </li>
+    <tbody>
+      <tr>
+        <td src={props.product.url}>{props.product.title}</td>
+        <td>{props.product.datePurchased} </td>
+        <td>{props.product.qtyPurchased} </td>
+        <td
+            className="btn"
+            id="remove"
+            type="remove"
+            onClick=''
+          >Remove
+        </td>
+      </tr>
+    </tbody>
 );
 
 
