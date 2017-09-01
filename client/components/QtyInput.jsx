@@ -4,15 +4,16 @@ export default class QtyInput extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-     // value: ''
+     value: ''
     };
   }
 
-  // handleInputChange(e) {
-  //   this.setState({
-  //     value: e.target.value
-  //   });
-  // }
+  handleInputChange(e) {
+    this.props.handleQtyInputChange(e.target.value);
+    this.setState({
+      value: e.target.value
+    });
+  }
 
   render() {
     return (
@@ -23,6 +24,7 @@ export default class QtyInput extends React.Component {
           id="qty-input"
           type="text"
           value={this.state.value}
+          onChange={this.handleInputChange.bind(this)}
         />
       </div>);
   }

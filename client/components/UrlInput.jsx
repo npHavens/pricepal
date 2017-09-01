@@ -4,15 +4,15 @@ export default class UrlInput extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      //value: ''
+      value: ''
     };
   }
 
-  // handleInputChange(e) {
-  //   this.setState({
-  //     value: e.target.value
-  //   });
-  // }
+  handleInputChange(e) {
+    this.setState({
+      value: e.target.value
+    });
+  }
 
   render() {
     return (

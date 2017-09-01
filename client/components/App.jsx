@@ -14,21 +14,37 @@ export default class App extends React.Component {
     };
   }
 
+  setUrl(url) {
+
+    this.setState({
+      currentProductUrl: url
+    });
+  }
+
+  setQty(qty) {
+    console.log('setting qty to', qty)
+    this.setState({
+      currentQty: qty
+    });
+  }
 
   getSavedProducts() {
     console.log('Getting saved products');
   }
 
-  addProduct(productObj) {
+  addProduct() {
    console.log('Adding Product');
-   console.log(productObj);
    this.getSavedProducts();
   }
 
   render() {
     return (
      <div>
-        <ProductInfoForm handleProductAdd={this.addProduct.bind(this)}/>
+        <ProductInfoForm
+          handleProductAdd={this.addProduct.bind(this)}
+          handleUrlInput={this.setUrl.bind(this)}
+          handleQtyInput={this.setQty.bind(this)}
+        />
         <FavoritesList />
       </div>);
   }

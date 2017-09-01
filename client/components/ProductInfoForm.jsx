@@ -21,8 +21,8 @@ export default class ProductInfoForm extends React.Component {
     return (
      <div className="form-group">
         Enter Product Info
-        <UrlInput />
-        <QtyInput />
+        <UrlInput handleUrlInputChange={this.props.handleUrlInput}/>
+        <QtyInput handleQtyInputChange={this.props.handleQtyInput}/>
         <AddProductButton handleButtonClick={this.props.handleProductAdd}/>
       </div>);
   }
