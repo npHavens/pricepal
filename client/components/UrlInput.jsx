@@ -9,6 +9,7 @@ export default class UrlInput extends React.Component {
   }
 
   handleInputChange(e) {
+    this.props.handleUrlInputChange(e.target.value);
     this.setState({
       value: e.target.value
     });
@@ -23,6 +24,7 @@ export default class UrlInput extends React.Component {
           id="url-input"
           type="text"
           value={this.state.value}
+          onChange={this.handleInputChange.bind(this)}
         />
       </div>);
   }

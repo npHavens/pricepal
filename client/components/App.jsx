@@ -15,7 +15,7 @@ export default class App extends React.Component {
   }
 
   setUrl(url) {
-
+    console.log('setting url to', url)
     this.setState({
       currentProductUrl: url
     });
