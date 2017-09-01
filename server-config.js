@@ -16,7 +16,7 @@ app.get('/', function(req, res) {
 })
 
 app.post('/products', function(req, res) {
-  console.log(req.body)
+  //console.log(req.body)
   sampleData.push(req.body)
   res.status(200).send();
 })

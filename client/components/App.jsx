@@ -13,6 +13,11 @@ export default class App extends React.Component {
       currentProductUrl: '',
       currentQty: 0
     };
+    this.getSavedProducts();
+  }
+
+  componentDidMount() {
+    this.getSavedProducts();
   }
 
   setUrl(url) {
@@ -33,8 +38,12 @@ export default class App extends React.Component {
     console.log('Getting saved products');
     axios.get('http://localhost:4568/')
     .then(function(res) {
-      console.log(res);
-    })
+      //console.log(res);
+      this.setState({
+      products: res
+    });
+      console.log(this.state.products)
+    }.bind(this))
   }
 
   addProduct() {
@@ -44,8 +53,8 @@ export default class App extends React.Component {
       url: this.state.currentProductUrl,
       datePurchased: new Date,
       qtyPurchased: this.state.currentQty
-    });
-   this.getSavedProducts();
+    }).then(this.getSavedProducts());
+
   }
 
   render() {
@@ -56,7 +65,9 @@ export default class App extends React.Component {
           handleUrlInput={this.setUrl.bind(this)}
           handleQtyInput={this.setQty.bind(this)}
         />
-        <FavoritesList />
+        <FavoritesList
+          products={this.state.products}
+        />
     </div>);
   }
 }
