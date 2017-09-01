@@ -1,5 +1,7 @@
 import React from 'react';
-import UrlInput from './UrlInput.jsx'
+import UrlInput from './UrlInput.jsx';
+import QtyInput from './QtyInput.jsx';
+import AddProductButton from './AddProductButton.jsx';
 
 export default class ProductInfoForm extends React.Component {
   constructor(props) {
@@ -19,6 +21,8 @@ export default class ProductInfoForm extends React.Component {
      <div className="form-group">
         Enter Product Info
         <UrlInput />
+        <QtyInput />
+        <AddProductButton />
       </div>);
   }
 }

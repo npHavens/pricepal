@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default class UrlInput extends React.Component {
+export default class QtyInput extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      //value: ''
+     // value: ''
     };
   }
 
@@ -17,10 +17,10 @@ export default class UrlInput extends React.Component {
   render() {
     return (
      <div>
-        <label htmlFor="url-input">Url</label>
+        <label htmlFor="qty-input">Quantity</label>
         <input
           className="form-control"
-          id="url-input"
+          id="qty-input"
           type="text"
           value={this.state.value}
         />
