@@ -1,4 +1,5 @@
 import React from 'react';
+import TitleInput from './TitleInput.jsx';
 import UrlInput from './UrlInput.jsx';
 import ProductInfoForm from './ProductInfoForm.jsx';
 import FavoritesList from './FavoritesList.jsx'
@@ -10,6 +11,7 @@ export default class App extends React.Component {
     //console.log(props)
     this.state = {
       products: [],
+      currentProductTitle: '',
       currentProductUrl: '',
       currentQty: 0
     };
@@ -20,12 +22,19 @@ export default class App extends React.Component {
     this.getSavedProducts();
   }
 
+  setTitle(title) {
+    this.setState({
+      currentProductTitle: title
+    });
+  }
+
   setUrl(url) {
     //console.log('setting url to', url)
     this.setState({
       currentProductUrl: url
     });
   }
+
 
   setQty(qty) {
    // console.log('setting qty to', qty)
@@ -39,6 +48,7 @@ export default class App extends React.Component {
     axios.get('http://localhost:4568/')
     .then(function(res) {
       //console.log(res);
+      console.log(res.data)
       this.setState({
       products: res.data
     });
@@ -47,14 +57,16 @@ export default class App extends React.Component {
   }
 
   addProduct() {
-   console.log('Adding Product', this.state);
-   axios.post('http://localhost:4568/products',
-    {
-      url: this.state.currentProductUrl,
-      datePurchased: new Date,
-      qtyPurchased: this.state.currentQty
-    }).then(this.getSavedProducts());
-
+    //console.log('Adding Product', this.state);
+    axios.post('http://localhost:4568/products',
+      {
+        title: this.state.currentProductTitle,
+        url: this.state.currentProductUrl,
+        datePurchased: new Date,
+        qtyPurchased: this.state.currentQty
+      }).then(function(res) {
+        this.getSavedProducts();
+      });
   }
 
   render() {
@@ -62,6 +74,7 @@ export default class App extends React.Component {
      <div>
         <ProductInfoForm
           handleProductAdd={this.addProduct.bind(this)}
+          handleTitleInput={this.setTitle.bind(this)}
           handleUrlInput={this.setUrl.bind(this)}
           handleQtyInput={this.setQty.bind(this)}
         />

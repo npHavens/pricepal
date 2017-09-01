@@ -1,11 +1,18 @@
 import React from 'react';
+import Iframe from 'react-iframe'
 
-let FavoriteEntry = () => (
+let FavoriteEntry = (props) => (
     <div className="favorite">
-      <a> Title </a>
-      <a> Price </a>
+      <a src={props.product.url}>{props.product.title}</a>
+      <a> Quantity Left: {props.product.qtyPurchased} </a>
       <a> Remove from Favorites </a>
     </div>
 );
+
+
+FavoriteEntry.propTypes = {
+  product: React.PropTypes.object.isRequired
+};
+
 
 export default FavoriteEntry;
