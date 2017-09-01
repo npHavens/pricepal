@@ -17,8 +17,10 @@ export default class UrlInput extends React.Component {
   render() {
     return (
      <div>
+        <label htmlFor="url-input">url</label>
         <input
-          className="Url-field"
+          className="form-control"
+          id="url-input"
           type="text"
           value={this.state.value}
         />
