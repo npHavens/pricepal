@@ -15,14 +15,14 @@ export default class App extends React.Component {
   }
 
   setUrl(url) {
-    console.log('setting url to', url)
+    //console.log('setting url to', url)
     this.setState({
       currentProductUrl: url
     });
   }
 
   setQty(qty) {
-    console.log('setting qty to', qty)
+   // console.log('setting qty to', qty)
     this.setState({
       currentQty: qty
     });
@@ -33,7 +33,7 @@ export default class App extends React.Component {
   }
 
   addProduct() {
-   console.log('Adding Product');
+   console.log('Adding Product', this.state);
    this.getSavedProducts();
   }
 
@@ -46,6 +46,6 @@ export default class App extends React.Component {
           handleQtyInput={this.setQty.bind(this)}
         />
         <FavoritesList />
-      </div>);
+    </div>);
   }
 }
