@@ -50,7 +50,7 @@ export default class App extends React.Component {
       this.setState({
       products: res.data
     });
-      console.log(this.state.products)
+     //console.log(this.state.products)
     }.bind(this))
   }
 

@@ -1,12 +1,11 @@
 import React from 'react';
-import Iframe from 'react-iframe'
 
 let FavoriteEntry = (props) => (
-    <div className="favorite">
+    <li className="list-group-item">
       <a src={props.product.url}>{props.product.title}</a>
       <a> Quantity Left: {props.product.qtyPurchased} </a>
       <a> Remove from Favorites </a>
-    </div>
+    </li>
 );
 
 
