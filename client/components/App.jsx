@@ -39,6 +39,12 @@ export default class App extends React.Component {
 
   addProduct() {
    console.log('Adding Product', this.state);
+   axios.post('http://localhost:4568/products',
+    {
+      url: this.state.currentProductUrl,
+      datePurchased: new Date,
+      qtyPurchased: this.state.currentQty
+    });
    this.getSavedProducts();
   }
 
