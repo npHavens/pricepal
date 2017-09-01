@@ -4,21 +4,31 @@ import ProductInfoForm from './ProductInfoForm.jsx';
 import FavoritesList from './FavoritesList.jsx'
 
 export default class App extends React.Component {
-
-  GetSavedProducts() {
-
+  constructor(props) {
+    super(props);
+    //console.log(props)
+    this.state = {
+      products: [],
+      currentProductUrl: '',
+      currentQty: 0
+    };
   }
 
-  AddProduct(productObj) {
-   console.log('Adding Product')
-   console.log(productObj)
-   this.setState(pr)
+
+  getSavedProducts() {
+    console.log('Getting saved products');
+  }
+
+  addProduct(productObj) {
+   console.log('Adding Product');
+   console.log(productObj);
+   this.getSavedProducts();
   }
 
   render() {
     return (
      <div>
-        <ProductInfoForm handleProductAdd={this.AddProduct.bind(this)}/>
+        <ProductInfoForm handleProductAdd={this.addProduct.bind(this)}/>
         <FavoritesList />
       </div>);
   }

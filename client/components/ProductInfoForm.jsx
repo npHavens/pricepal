@@ -5,6 +5,7 @@ import AddProductButton from './AddProductButton.jsx';
 
 export default class ProductInfoForm extends React.Component {
   constructor(props) {
+    //console.log(props)
     super(props);
     this.state = {
     };
@@ -22,7 +23,7 @@ export default class ProductInfoForm extends React.Component {
         Enter Product Info
         <UrlInput />
         <QtyInput />
-        <AddProductButton />
+        <AddProductButton handleButtonClick={this.props.handleProductAdd}/>
       </div>);
   }
 }
