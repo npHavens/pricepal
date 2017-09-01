@@ -2,6 +2,7 @@ import React from 'react';
 import UrlInput from './UrlInput.jsx';
 import ProductInfoForm from './ProductInfoForm.jsx';
 import FavoritesList from './FavoritesList.jsx'
+import axios from 'axios';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -30,6 +31,10 @@ export default class App extends React.Component {
 
   getSavedProducts() {
     console.log('Getting saved products');
+    axios.get('http://localhost:4568/')
+    .then(function(res) {
+      console.log(res);
+    })
   }
 
   addProduct() {
