@@ -7,10 +7,12 @@
   "author": "Nick Havens <npahavens@gmail.com>",
   "license": "UNLICENSED",
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "test": "nodemon server.js"
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "express": "^4.15.4",
     "html-webpack-plugin": "^2.30.1",
     "jquery": "^3.2.1",
     "path": "^0.12.7",
