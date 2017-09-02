@@ -12,12 +12,6 @@ export default class ProductInfoForm extends React.Component {
     };
   }
 
-  // handleInputChange(e) {
-  //   this.setState({
-  //     value: e.target.value
-  //   });
-  // }
-
   render() {
     return (
      <div className="form-group">

@@ -8,16 +8,11 @@ let FavoritesList = (props) => (
       Saved Products
     </label>
     <table className="table table-hover" id="favorites">
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Date Purchased</th>
-          <th>Quantity Left</th>
-        </tr>
-      </thead>
-      {props.products.map((product, i) => {
-        return <FavoriteEntry product={product} key={i}/>
-      })}
+      <tbody>
+        {props.products.map((product, i) => {
+          return <FavoriteEntry product={product} key={i}/>
+        })}
+      </tbody>
     </table>
   </div>
 );
