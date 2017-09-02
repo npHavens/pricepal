@@ -32,6 +32,13 @@ export default class FavoriteEntry extends React.Component {
           `
         }</td>
          <td>{this.state.daysRemaining + ' '}Days Remaining</td>
+         <td>
+            <button
+              type="button"
+              className="btn btn-success"
+
+            >Purchase Now</button>
+         </td>
       </tr>
     )
   }

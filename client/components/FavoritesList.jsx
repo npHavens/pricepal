@@ -5,7 +5,7 @@ let FavoritesList = (props) => (
   <div className="container">
     <label htmlFor="favorites">
       {JSON.stringify(props.products.length) + ' '}
-      Saved Products
+      Saved Product{props.products.length > 1  || props.products.length === 0 ? 's' : ''}
     </label>
     <table className="table table-hover" id="favorites">
       <tbody>

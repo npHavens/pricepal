@@ -1,20 +1,21 @@
 import React from 'react';
 
-let AddProductButton = (props) => {
+let UpdateProductButton = (props) => {
   return (
     <div className="form-group row">
       <button
         className="btn btn-primary center-block"
-        id="add-product"
+        id="update-product"
         type="submit"
         onClick={props.handleButtonClick}
       >Add Product</button>
     </div>
-  );
-}
+    );
+  }
 
-AddProductButton.propTypes = {
+
+UpdateProductButton.propTypes = {
   handleButtonClick: React.PropTypes.func.isRequired
 };
 
-export default AddProductButton;
+export default UpdateProductButton;
