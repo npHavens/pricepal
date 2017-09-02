@@ -2,7 +2,7 @@ import React from 'react';
 import FavoriteEntry from './FavoriteEntry.jsx';
 
 let FavoritesList = (props) => (
-  <div>
+  <div className="container">
     <label htmlFor="favorites">
       {JSON.stringify(props.products.length) + ' '}
       Saved Products

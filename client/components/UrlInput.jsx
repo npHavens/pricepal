@@ -17,15 +17,20 @@ export default class UrlInput extends React.Component {
 
   render() {
     return (
-     <div>
-        <label htmlFor="url-input">Url</label>
-        <input
-          className="form-control"
-          id="url-input"
-          type="text"
-          value={this.state.value}
-          onChange={this.handleInputChange.bind(this)}
-        />
+      <div className="form-group row">
+        <label
+          htmlFor="url-input"
+          className="control-label col-sm-2"
+        >Url</label>
+        <div className="col-sm-8">
+          <input
+            className="form-control"
+            id="url-input"
+            type="text"
+            value={this.state.value}
+            onChange={this.handleInputChange.bind(this)}
+          />
+        </div>
       </div>);
   }
 }

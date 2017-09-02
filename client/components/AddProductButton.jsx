@@ -10,9 +10,9 @@ export default class AddProductButton extends React.Component {
 
   render() {
     return (
-     <div>
+     <div className="form-group row">
         <button
-          className="btn btn-primary"
+          className="btn btn-primary center-block"
           id="qty-input"
           type="submit"
           onClick={this.props.handleButtonClick}

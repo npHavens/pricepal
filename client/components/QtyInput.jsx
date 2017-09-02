@@ -17,15 +17,20 @@ export default class QtyInput extends React.Component {
 
   render() {
     return (
-     <div>
-        <label htmlFor="qty-input">Quantity</label>
-        <input
-          className="form-control"
-          id="qty-input"
-          type="text"
-          value={this.state.value}
-          onChange={this.handleInputChange.bind(this)}
-        />
+     <div className="form-group row">
+        <label
+          htmlFor="qty-input"
+          className="control-label col-sm-4"
+        >Quantity Purchased</label>
+        <div className="col-sm-1">
+          <input
+            className="form-control"
+            id="qty-input"
+            type="text"
+            value={this.state.value}
+            onChange={this.handleInputChange.bind(this)}
+          />
+        </div>
       </div>);
   }
 }

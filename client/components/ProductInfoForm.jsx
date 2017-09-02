@@ -14,12 +14,13 @@ export default class ProductInfoForm extends React.Component {
 
   render() {
     return (
-     <div className="form-group">
-        Enter Product Info
-        <TitleInput handleTitleInputChange={this.props.handleTitleInput}/>
+      <form className= "container-fluid form-horizontal">
+        <h3 id="form-title" className="row">Enter Product Info</h3>
+        <TitleInput  handleTitleInputChange={this.props.handleTitleInput}/>
         <UrlInput handleUrlInputChange={this.props.handleUrlInput}/>
         <QtyInput handleQtyInputChange={this.props.handleQtyInput}/>
         <AddProductButton handleButtonClick={this.props.handleProductAdd}/>
-      </div>);
+      </form>
+    );
   }
 }

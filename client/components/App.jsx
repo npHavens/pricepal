@@ -71,7 +71,8 @@ export default class App extends React.Component {
 
   render() {
     return (
-     <div>
+
+     <div className="container-fluid">
         <ProductInfoForm
           handleProductAdd={this.addProduct.bind(this)}
           handleTitleInput={this.setTitle.bind(this)}
