@@ -2,14 +2,10 @@ import React from 'react';
 
 let UpdateProductButton = (props) => {
   return (
-    <div className="form-group row">
-      <button
-        className="btn btn-primary center-block"
-        id="update-product"
-        type="submit"
-        onClick={props.handleButtonClick}
-      >Add Product</button>
-    </div>
+    <button
+      type="button"
+      className="btn btn-success btn-sm"
+    >Purchase Now</button>
     );
   }
 

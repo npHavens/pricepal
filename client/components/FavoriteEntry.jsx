@@ -1,4 +1,6 @@
 import React from 'react';
+import UpdateProductButton from './UpdateProductButton.jsx';
+import RemoveProductButton from './RemoveProductButton.jsx';
 
 export default class FavoriteEntry extends React.Component {
   constructor(props) {
@@ -32,13 +34,8 @@ export default class FavoriteEntry extends React.Component {
           `
         }</td>
          <td>{this.state.daysRemaining + ' '}Days Remaining</td>
-         <td>
-            <button
-              type="button"
-              className="btn btn-success"
-
-            >Purchase Now</button>
-         </td>
+         <td><UpdateProductButton /></td>
+         <td><RemoveProductButton /></td>
       </tr>
     )
   }
