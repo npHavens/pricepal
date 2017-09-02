@@ -1,22 +1,22 @@
 import React from 'react';
 
-export default class AddProductButton extends React.Component {
-  constructor(props) {
-    super(props);
-    //console.log(props)
-    this.state = {
-    };
+let AddProductButton = (props) => {
+
+  return (
+    <div className="form-group row">
+      <button
+        className="btn btn-primary center-block"
+        id="qty-input"
+        type="submit"
+        onClick={props.handleButtonClick}
+      >Add Product</button>
+    </div>
+    );
   }
 
-  render() {
-    return (
-     <div className="form-group row">
-        <button
-          className="btn btn-primary center-block"
-          id="qty-input"
-          type="submit"
-          onClick={this.props.handleButtonClick}
-        >Add Product</button>
-      </div>);
-  }
-}
+
+AddProductButton.propTypes = {
+  handleButtonClick: React.PropTypes.func.isRequired
+};
+
+export default AddProductButton;
