@@ -68,8 +68,15 @@ export default class App extends React.Component {
       }.bind(this));
   }
 
-  updateProduct() {
-    console.log('Updating Product');
+  updateProduct(id) {
+    console.log('Updating Product with ID:', id);
+      axios.put('http://localhost:4568/products',
+      {
+        id: id,
+        datePurchased: new Date
+      }).then(function(res) {
+          this.getSavedProducts();
+      }.bind(this));
   }
 
   removeProduct() {

@@ -34,7 +34,11 @@ export default class FavoriteEntry extends React.Component {
           `
         }</td>
          <td>{this.state.daysRemaining + ' '}Days Remaining</td>
-         <td><UpdateProductButton handleButtonClick={this.props.handleProductUpdate}/></td>
+         <td><UpdateProductButton
+           handleButtonClick={this.props.handleProductUpdate}
+           productId={this.props.product.id}
+
+         /></td>
          <td><RemoveProductButton handleButtonClick={this.props.handleProductDelete}/></td>
       </tr>
     )

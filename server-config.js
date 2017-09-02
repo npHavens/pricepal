@@ -13,15 +13,18 @@ app.get('/', function(req, res) {
   //res.status(200).send()
   //console.log(sampleData);
   res.status(200).send(JSON.stringify(sampleData));
-})
+});
 
 app.post('/products', function(req, res) {
   //console.log(req.body)
   sampleData.push(req.body)
   res.status(200).send();
-})
+});
 
-
+app.put('/products', function(req, res) {
+  console.log(req.body);
+    res.status(200).send();
+});
 
 module.exports = app;
 
