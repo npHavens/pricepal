@@ -10,7 +10,12 @@ let FavoritesList = (props) => (
     <table className="table table-hover" id="favorites">
       <tbody>
         {props.products.map((product, i) => {
-          return <FavoriteEntry product={product} key={i}/>
+          return <FavoriteEntry
+            product={product}
+            key={i}
+            handleProductUpdate = {props.handleProductUpdate}
+            handleProductDelete = {props.handleProductDelete}
+          />
         })}
       </tbody>
     </table>

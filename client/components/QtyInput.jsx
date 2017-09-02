@@ -22,7 +22,7 @@ export default class QtyInput extends React.Component {
           htmlFor="qty-input"
           className="control-label col-sm-4"
         >Quantity Purchased</label>
-        <div className="col-sm-1">
+        <div className="col-sm-2">
           <input
             className="form-control"
             id="qty-input"

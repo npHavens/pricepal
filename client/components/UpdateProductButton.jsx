@@ -5,6 +5,7 @@ let UpdateProductButton = (props) => {
     <button
       type="button"
       className="btn btn-success btn-sm"
+      onClick={props.handleButtonClick}
     >Purchase Now</button>
     );
   }

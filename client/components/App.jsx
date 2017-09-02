@@ -68,10 +68,17 @@ export default class App extends React.Component {
       }.bind(this));
   }
 
+  updateProduct() {
+    console.log('Updating Product');
+  }
+
+  removeProduct() {
+    console.log('Removing Product');
+  }
+
 
   render() {
     return (
-
      <div className="container-fluid">
         <ProductInfoForm
           handleProductAdd={this.addProduct.bind(this)}
@@ -80,7 +87,11 @@ export default class App extends React.Component {
           handleQtyInput={this.setQty.bind(this)}
         />
         {!this.state.products ? <p>Loading</p> :
-        <FavoritesList products={this.state.products}/>}
+        <FavoritesList
+          products={this.state.products}
+          handleProductUpdate={this.updateProduct.bind(this)}
+          handleProductDelete={this.removeProduct.bind(this)}
+        />}
     </div>);
   }
 }

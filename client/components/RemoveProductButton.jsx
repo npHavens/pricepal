@@ -5,6 +5,7 @@ let RemoveProductButton = (props) => {
     <button
       type="button"
       className="btn btn-danger btn-sm"
+      onClick={props.handleButtonClick}
     >Remove</button>
     );
   }
