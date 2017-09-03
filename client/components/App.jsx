@@ -8,18 +8,16 @@ import axios from 'axios';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    //console.log(props)
+
     this.state = {
       products: [],
       currentProductTitle: '',
       currentProductUrl: '',
       currentQty: 0
     };
-    this.getSavedProducts();
   }
 
   componentDidMount() {
-
     this.getSavedProducts();
   }
 
@@ -30,52 +28,45 @@ export default class App extends React.Component {
   }
 
   setUrl(url) {
-    //console.log('setting url to', url)
     this.setState({
       currentProductUrl: url
     });
   }
 
-
   setQty(qty) {
-   // console.log('setting qty to', qty)
     this.setState({
       currentQty: qty
     });
   }
 
   getSavedProducts() {
+    setTimeout(this.getSavedProducts.bind(this), 10000);
     console.log('Getting saved products');
     axios.get('http://localhost:4568/')
     .then(function(res) {
-      this.setState({
-      products: res.data
-    });
-     //console.log(this.state.products)
+      this.setState({products: res.data});
     }.bind(this))
   }
 
   addProduct() {
-    console.log('Adding Product');
+    console.log('Adding Product'),
     axios.post('http://localhost:4568/products',
       {
+        id: this.state.products.length,
         title: this.state.currentProductTitle,
         url: this.state.currentProductUrl,
         datePurchased: new Date(),
         qtyPurchased: this.state.currentQty
       }).then(function(res) {
-          this.getSavedProducts();
+          this.setState({products: res.data});
       }.bind(this));
   }
 
   updateProduct(id) {
     console.log('Updating Product with ID:', id);
       axios.put('http://localhost:4568/products',
-      {
-        id: id,
-        datePurchased: new Date
-      }).then(function(res) {
-          this.getSavedProducts();
+      { id: id}).then(function(res) {
+          this.setState({products: res.data});
       }.bind(this));
   }
 

@@ -10,20 +10,22 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', function(req, res) {
-  //res.status(200).send()
-  //console.log(sampleData);
   res.status(200).send(JSON.stringify(sampleData));
 });
 
 app.post('/products', function(req, res) {
-  //console.log(req.body)
-  sampleData.push(req.body)
-  res.status(200).send();
+  sampleData.push(req.body);
+  res.status(200).send(sampleData);
 });
 
 app.put('/products', function(req, res) {
-  console.log(req.body);
-    res.status(200).send();
+  sampleData.forEach(function(product) {
+    if (product.id === req.body.id) {
+      console.log('Updating purchase date in DB')
+      product.datePurchased = new Date();
+    }
+  })
+  res.status(200).send(sampleData);
 });
 
 module.exports = app;
