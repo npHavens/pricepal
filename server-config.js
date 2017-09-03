@@ -28,5 +28,13 @@ app.put('/products', function(req, res) {
   res.status(200).send(sampleData);
 });
 
+app.delete('/products', function(req, res) {
+  sampleData = sampleData.filter(function(product) {
+    return product.id !== +req.url[req.url.length - 1];
+  })
+  res.status(200).send(sampleData);
+});
+
+
 module.exports = app;
 

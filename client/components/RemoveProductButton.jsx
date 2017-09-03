@@ -5,7 +5,10 @@ let RemoveProductButton = (props) => {
     <button
       type="button"
       className="btn btn-danger btn-sm"
-      onClick={props.handleButtonClick}
+      onClick={function() {
+          props.handleButtonClick(props.productId)
+        }
+      }
     >Remove</button>
   );
 }

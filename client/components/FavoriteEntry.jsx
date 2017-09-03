@@ -39,7 +39,10 @@ export default class FavoriteEntry extends React.Component {
            productId={this.props.product.id}
 
          /></td>
-         <td><RemoveProductButton handleButtonClick={this.props.handleProductDelete}/></td>
+         <td><RemoveProductButton
+           handleButtonClick={this.props.handleProductDelete}
+           productId={this.props.product.id}
+         /></td>
       </tr>
     )
   }
