@@ -14,7 +14,7 @@ const Product = db.define('Product', {
   datePurchased: Sequelize.STRING
 });
 
-Product.createNew = function(data) {
+Product.createNew = function(data, cb) {
   Product.sync()
     .then(function() {
       return Product.create({
@@ -22,7 +22,10 @@ Product.createNew = function(data) {
         url: data.url,
         qtyPurchased: data.qtyPurchased,
         datePurchased: data.datePurchased
-      });
+      })
+      .then(function(products) {
+        cb(products)
+      })
     })
     .catch(function(err) {
       console.log(err);
@@ -40,5 +43,6 @@ Product.getAll= function(cb) {
       })
     })
 };
+
 
 module.exports = Product;

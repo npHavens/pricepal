@@ -18,8 +18,10 @@ app.get('/', function(req, res) {
 
 app.post('/products', function(req, res) {
   // sampleData.push(req.body);
-  Product.createNew(req.body);
-  res.status(200).send();
+  Product.createNew(req.body, function(array) {
+     res.status(200).send(array);
+  });
+
 });
 
 app.put('/products', function(req, res) {
