@@ -31,7 +31,7 @@ Product.createNew = function(data, cb) {
     })
 };
 
-Product.getAll= function(cb) {
+Product.getAll = function(cb) {
   Product.sync()
     .then(function() {
       Product.findAll()
@@ -40,6 +40,18 @@ Product.getAll= function(cb) {
         cb(products);
       })
     })
+};
+
+Product.delete = function(productId, cb) {
+  Product.sync()
+  .then(function() {
+    Product.destroy({where: {id: productId}})
+    .then(function() {
+      console.log('DELETING')
+      cb();
+    })
+  })
+
 };
 
 

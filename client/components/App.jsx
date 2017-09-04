@@ -73,7 +73,7 @@ export default class App extends React.Component {
     console.log('Removing Product with ID:', id);
       axios.delete('http://localhost:4568/products', {params:{ id: id}})
       .then(function(res) {
-        this.setState({products: res.data});
+        this.getSavedProducts();
       }.bind(this));
   }
 
