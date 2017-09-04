@@ -64,17 +64,17 @@ export default class App extends React.Component {
 
   updateProduct(id) {
     console.log('Updating Product with ID:', id);
-      axios.put('http://localhost:4568/products',
-      { id: id}).then(function(res) {
-          this.setState({products: res.data});
+      axios.put('http://localhost:4568/products', {id: id})
+      .then(function(res) {
+        this.setState({products: res.data});
       }.bind(this));
   }
 
   removeProduct(id) {
     console.log('Removing Product with ID:', id);
-      axios.delete('http://localhost:4568/products',
-      {params:{ id: id}}).then(function(res) {
-          this.setState({products: res.data});
+      axios.delete('http://localhost:4568/products', {params:{ id: id}})
+      .then(function(res) {
+        this.setState({products: res.data});
       }.bind(this));
   }
 

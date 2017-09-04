@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', function(req, res) {
-  res.status(200).send(JSON.stringify(sampleData));
+  res.status(200).send(sampleData);
 });
 
 app.post('/products', function(req, res) {
@@ -34,7 +34,6 @@ app.delete('/products', function(req, res) {
   })
   res.status(200).send(sampleData);
 });
-
 
 module.exports = app;
 
