@@ -3,6 +3,7 @@ const app = express();
 const sampleData = require('./lib/sample-data.js')
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const Product = require('./app/models/Product.js');
 
 app.use(cors());
 app.options('*', cors());
@@ -14,8 +15,10 @@ app.get('/', function(req, res) {
 });
 
 app.post('/products', function(req, res) {
-  sampleData.push(req.body);
-  res.status(200).send(sampleData);
+  // sampleData.push(req.body);
+  console.log(req.body)
+
+  res.status(200).send();
 });
 
 app.put('/products', function(req, res) {

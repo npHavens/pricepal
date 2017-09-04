@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const db = require('./config.js');
+const db = require('../config.js');
 
 const Product = db.define('Product', {
   id: {
@@ -11,23 +11,23 @@ const Product = db.define('Product', {
   title: Sequelize.STRING,
   url: Sequelize.STRING,
   qtyPurchased: Sequelize.INTEGER,
-  datePurchased: Sequalize.STRING
+  datePurchased: Sequelize.STRING
 });
 
-Product.createNew = function(data) {
-  Product.sync()
-    .then(function() {
-      return Product.create({
-        title: data.title,
-        url: data.url,
-        qtyPurchased: data.qtyPurchased,
-        datePurchased: data.datePurchased
-      });
-    })
-    .catch(function(err) {
-      console.log(err);
-      db.close();
-    })
-};
+// Product.createNew = function(data) {
+//   Product.sync()
+//     .then(function() {
+//       return Product.create({
+//         title: data.title,
+//         url: data.url,
+//         qtyPurchased: data.qtyPurchased,
+//         datePurchased: data.datePurchased
+//       });
+//     })
+//     .catch(function(err) {
+//       console.log(err);
+//       db.close();
+//     })
+// };
 
 module.exports = Product;
