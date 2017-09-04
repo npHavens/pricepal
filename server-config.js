@@ -16,7 +16,8 @@ app.get('/', function(req, res) {
 
 app.post('/products', function(req, res) {
   // sampleData.push(req.body);
-  console.log(req.body)
+
+  Product.createNew(req.body);
 
   res.status(200).send();
 });

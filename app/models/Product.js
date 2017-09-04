@@ -14,20 +14,20 @@ const Product = db.define('Product', {
   datePurchased: Sequelize.STRING
 });
 
-// Product.createNew = function(data) {
-//   Product.sync()
-//     .then(function() {
-//       return Product.create({
-//         title: data.title,
-//         url: data.url,
-//         qtyPurchased: data.qtyPurchased,
-//         datePurchased: data.datePurchased
-//       });
-//     })
-//     .catch(function(err) {
-//       console.log(err);
-//       db.close();
-//     })
-// };
+Product.createNew = function(data) {
+  Product.sync()
+    .then(function() {
+      return Product.create({
+        title: data.title,
+        url: data.url,
+        qtyPurchased: data.qtyPurchased,
+        datePurchased: data.datePurchased
+      });
+    })
+    .catch(function(err) {
+      console.log(err);
+      db.close();
+    })
+};
 
 module.exports = Product;
