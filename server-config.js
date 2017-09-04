@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-let sampleData = require('./lib/sample-data.js')
+const sampleData = require('./lib/sample-data.js')
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
