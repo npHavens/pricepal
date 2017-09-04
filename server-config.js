@@ -11,14 +11,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', function(req, res) {
-  res.status(200).send(sampleData);
+  Product.getAll(function(array) {
+    res.status(200).send(array);
+  });
 });
 
 app.post('/products', function(req, res) {
   // sampleData.push(req.body);
-
   Product.createNew(req.body);
-
   res.status(200).send();
 });
 

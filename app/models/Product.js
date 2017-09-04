@@ -30,4 +30,15 @@ Product.createNew = function(data) {
     })
 };
 
+Product.getAll= function(cb) {
+  Product.sync()
+    .then(function() {
+      Product.findAll()
+      .then(function(products) {
+        //console.log(products)
+        cb(products);
+      })
+    })
+};
+
 module.exports = Product;

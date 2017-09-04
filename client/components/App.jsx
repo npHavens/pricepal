@@ -44,6 +44,7 @@ export default class App extends React.Component {
     console.log('Getting saved products');
     axios.get('http://localhost:4568/')
     .then(function(res) {
+      //console.log(res.data)
       this.setState({products: res.data});
     }.bind(this))
   }
