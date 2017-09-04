@@ -7,7 +7,7 @@ export default class FavoriteEntry extends React.Component {
     super(props);
       //console.log(props)
     this.state = {
-      rawPurchaseDate: new Date(this.props.product.datePurchased),
+      rawPurchaseDate: new Date(this.props.product.createdAt),
       daysRemaining: this.props.product.qtyPurchased
     }
   }

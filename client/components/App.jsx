@@ -55,7 +55,6 @@ export default class App extends React.Component {
       {
         title: this.state.currentProductTitle,
         url: this.state.currentProductUrl,
-        datePurchased: new Date(),
         qtyPurchased: this.state.currentQty
       }).then(function(res) {
           this.setState({products: res.data});

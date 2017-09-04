@@ -10,8 +10,7 @@ const Product = db.define('Product', {
   },
   title: Sequelize.STRING,
   url: Sequelize.STRING,
-  qtyPurchased: Sequelize.INTEGER,
-  datePurchased: Sequelize.STRING
+  qtyPurchased: Sequelize.INTEGER
 });
 
 Product.createNew = function(data, cb) {
@@ -20,11 +19,10 @@ Product.createNew = function(data, cb) {
       return Product.create({
         title: data.title,
         url: data.url,
-        qtyPurchased: data.qtyPurchased,
-        datePurchased: data.datePurchased
+        qtyPurchased: data.qtyPurchased
       })
       .then(function(products) {
-        cb(products)
+        cb(products);
       })
     })
     .catch(function(err) {
