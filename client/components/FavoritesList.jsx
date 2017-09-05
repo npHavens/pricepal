@@ -16,8 +16,6 @@ let FavoritesList = (props) => (
             handleProductUpdate = {props.handleProductUpdate}
             handleProductDelete = {props.handleProductDelete}
           />
-        }).sort(function(a, b) {
-
         })
       }
       </tbody>

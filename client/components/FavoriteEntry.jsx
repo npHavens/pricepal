@@ -7,23 +7,11 @@ export default class FavoriteEntry extends React.Component {
     super(props);
       //console.log(props)
     this.state = {
-      rawPurchaseDate: new Date(this.props.product.updatedAt),
-      daysRemaining: this.props.product.qtyPurchased
+      rawPurchaseDate: new Date(this.props.product.updatedAt)
     }
   }
 
-  componentDidMount() {
-    this.getDaysRemaining();
-  }
 
-  getDaysRemaining() {
-    let start = Date.parse(this.state.rawPurchaseDate);
-    let timeDiff = Date.now() - start;
-
-    this.setState({
-      daysRemaining: Math.floor(this.state.daysRemaining - (timeDiff / (1000 * 3600 * 24)))
-    });
-  }
 
   render() {
     return (
@@ -33,7 +21,7 @@ export default class FavoriteEntry extends React.Component {
           ` ${this.state.rawPurchaseDate.getMonth() + 1}-${this.state.rawPurchaseDate.getDate()}-${this.state.rawPurchaseDate.getFullYear()}
           `
         }</td>
-         <td>{this.state.daysRemaining + ' '}Days Remaining</td>
+         <td>{this.props.product.daysRemaining + ' '}Days Remaining</td>
          <td><UpdateProductButton
            handleButtonClick={this.props.handleProductUpdate}
            productId={this.props.product.id}

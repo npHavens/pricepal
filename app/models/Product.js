@@ -38,7 +38,6 @@ Product.getAll = function(cb) {
     .then(function() {
       Product.findAll()
       .then(function(products) {
-        //console.log(products)
         cb(products);
       })
     })
