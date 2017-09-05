@@ -6,7 +6,7 @@ let UpdateProductButton = (props) => {
       type="button"
       className="btn btn-success btn-sm"
       onClick={function() {
-          props.handleButtonClick(props.productId)
+          props.handleButtonClick(props.productId, props.productUrl)
         }
       }
     >Purchase Now</button>

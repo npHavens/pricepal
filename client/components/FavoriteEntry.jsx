@@ -7,7 +7,7 @@ export default class FavoriteEntry extends React.Component {
     super(props);
       //console.log(props)
     this.state = {
-      rawPurchaseDate: new Date(this.props.product.createdAt),
+      rawPurchaseDate: new Date(this.props.product.updatedAt),
       daysRemaining: this.props.product.qtyPurchased
     }
   }
@@ -26,6 +26,7 @@ export default class FavoriteEntry extends React.Component {
   }
 
   render() {
+    console.log(this.props.product.url)
     return (
       <tr>
         <td>{this.props.product.title}</td>
@@ -37,6 +38,7 @@ export default class FavoriteEntry extends React.Component {
          <td><UpdateProductButton
            handleButtonClick={this.props.handleProductUpdate}
            productId={this.props.product.id}
+           productUrl={this.props.product.url}
 
          /></td>
          <td><RemoveProductButton

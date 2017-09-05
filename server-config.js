@@ -17,29 +17,22 @@ app.get('/', function(req, res) {
 });
 
 app.post('/products', function(req, res) {
-  // sampleData.push(req.body);
   Product.createNew(req.body, function(array) {
      res.status(200).send(array);
   });
-
 });
 
 app.put('/products', function(req, res) {
-  sampleData.forEach(function(product) {
-    if (product.id === req.body.id) {
-      console.log('Updating purchase date in DB')
-      product.datePurchased = new Date();
-    }
+  Product.renewPurchase(req.body.id, function() {
+    res.status(200).send();
   })
-  res.status(200).send(sampleData);
 });
 
 app.delete('/products', function(req, res) {
   let productId = +req.url[req.url.length - 1];
-  Product.delete(productId, function() {
-    res.status(200).send();
+  Product.delete(productId, function(array) {
+    res.status(200).send(array);
   })
-
 });
 
 module.exports = app;

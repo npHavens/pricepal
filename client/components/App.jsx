@@ -40,7 +40,7 @@ export default class App extends React.Component {
   }
 
   getSavedProducts() {
-    setTimeout(this.getSavedProducts.bind(this), 10000);
+    //setTimeout(this.getSavedProducts.bind(this), 10000);
     console.log('Getting saved products');
     axios.get('http://localhost:4568/')
     .then(function(res) {
@@ -61,11 +61,12 @@ export default class App extends React.Component {
       }.bind(this));
   }
 
-  updateProduct(id) {
-    console.log('Updating Product with ID:', id);
+  updateProduct(id, url) {
+    console.log('Updating Product with ID:', id, url);
+    window.open(url)
       axios.put('http://localhost:4568/products', {id: id})
       .then(function(res) {
-        this.setState({products: res.data});
+        this.getSavedProducts();
       }.bind(this));
   }
 

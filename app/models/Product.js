@@ -9,8 +9,9 @@ const Product = db.define('Product', {
     autoIncrement: true
   },
   title: Sequelize.STRING,
-  url: Sequelize.STRING,
-  qtyPurchased: Sequelize.INTEGER
+  url: Sequelize.STRING(1024),
+  qtyPurchased: Sequelize.INTEGER,
+  timesPurchased: Sequelize.INTEGER
 });
 
 Product.createNew = function(data, cb) {
@@ -19,7 +20,8 @@ Product.createNew = function(data, cb) {
       return Product.create({
         title: data.title,
         url: data.url,
-        qtyPurchased: data.qtyPurchased
+        qtyPurchased: data.qtyPurchased,
+        timesPurchased: 1
       })
       .then(function(products) {
         cb(products);
@@ -51,7 +53,22 @@ Product.delete = function(productId, cb) {
       cb();
     })
   })
+};
 
+Product.renewPurchase = function(productId, cb) {
+  Product.sync()
+  .then(function() {
+    Product.findOne({where: {id: productId}})
+    .then(function(product) {
+      product.updateAttributes({
+       timesPurchased: product.timesPurchased++
+      })
+      .then(function() {
+        cb();
+      })
+
+    })
+  })
 };
 
 
