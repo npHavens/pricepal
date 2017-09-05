@@ -38,7 +38,16 @@ Product.getAll = function(cb) {
     .then(function() {
       Product.findAll()
       .then(function(products) {
-        cb(products);
+        products.forEach(function(product) {
+          const start = Date.parse(new Date(product.updatedAt));
+          const timeDiff = Date.now() - start;
+          const daysRemaining = Math.floor(product.qtyPurchased - (timeDiff / (1000 * 3600 * 24)))
+          product.dataValues.daysRemaining = daysRemaining;
+          console.log(product.qtyPurchased - (timeDiff / (1000 * 3600 * 24)))
+        })
+        cb(products.sort(function(a, b) {
+          return b.dataValues.daysRemaining < a.dataValues.daysRemaining;
+        }));
       })
     })
 };

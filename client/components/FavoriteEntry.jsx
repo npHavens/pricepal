@@ -11,8 +11,6 @@ export default class FavoriteEntry extends React.Component {
     }
   }
 
-
-
   render() {
     return (
       <tr>
@@ -26,7 +24,6 @@ export default class FavoriteEntry extends React.Component {
            handleButtonClick={this.props.handleProductUpdate}
            productId={this.props.product.id}
            productUrl={this.props.product.url}
-
          /></td>
          <td><RemoveProductButton
            handleButtonClick={this.props.handleProductDelete}

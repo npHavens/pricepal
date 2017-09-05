@@ -12,14 +12,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', function(req, res) {
   Product.getAll(function(array) {
-    array.forEach(function(product) {
-      const start = Date.parse(new Date(product.updatedAt));
-      const timeDiff = Date.now() - start;
-      const daysRemaining = Math.floor(product.qtyPurchased - (timeDiff / (1000 * 3600 * 24)))
-      product.dataValues.daysRemaining = daysRemaining;
-      //console.log(product.qtyPurchased - (timeDiff / (1000 * 3600 * 24)))
-      console.log(product.dataValues)
-    })
     res.status(200).send(array);
   });
 });
