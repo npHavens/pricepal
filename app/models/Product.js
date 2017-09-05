@@ -74,7 +74,6 @@ Product.renewPurchase = function(productId, cb) {
       .then(function() {
         cb();
       })
-
     })
   })
 };
