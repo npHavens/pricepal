@@ -26,7 +26,6 @@ export default class FavoriteEntry extends React.Component {
   }
 
   render() {
-    console.log(this.props.product.url)
     return (
       <tr>
         <td>{this.props.product.title}</td>

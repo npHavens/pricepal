@@ -62,7 +62,7 @@ export default class App extends React.Component {
   }
 
   updateProduct(id, url) {
-    console.log('Updating Product with ID:', id, url);
+    console.log('Updating Product with ID:', id);
     window.open(url)
       axios.put('http://localhost:4568/products', {id: id})
       .then(function(res) {
