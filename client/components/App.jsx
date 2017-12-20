@@ -4,8 +4,9 @@ import UrlInput from './UrlInput.jsx';
 import ProductInfoForm from './ProductInfoForm.jsx';
 import FavoritesList from './FavoritesList.jsx'
 import axios from 'axios';
+import '../css/styles.css';
 
-export default class App extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
 
@@ -42,7 +43,7 @@ export default class App extends React.Component {
   getSavedProducts() {
     //setTimeout(this.getSavedProducts.bind(this), 10000);
     console.log('Getting saved products');
-    axios.get('http://localhost:4568/')
+    axios.get('http://localhost:3000/products')
     .then(function(res) {
       //console.log(res.data)
       this.setState({products: res.data});
@@ -51,7 +52,7 @@ export default class App extends React.Component {
 
   addProduct() {
     console.log('Adding Product'),
-    axios.post('http://localhost:4568/products',
+    axios.post('http://localhost:3000/products',
       {
         title: this.state.currentProductTitle,
         url: this.state.currentProductUrl,
@@ -64,7 +65,7 @@ export default class App extends React.Component {
   updateProduct(id, url) {
     console.log('Updating Product with ID:', id);
     window.open(url)
-      axios.put('http://localhost:4568/products', {id: id})
+      axios.put('http://localhost:3000/products', {id: id})
       .then(function(res) {
         this.getSavedProducts();
       }.bind(this));
@@ -72,7 +73,7 @@ export default class App extends React.Component {
 
   removeProduct(id) {
     console.log('Removing Product with ID:', id);
-      axios.delete('http://localhost:4568/products', {params:{ id: id}})
+      axios.delete('http://localhost:3000/products', {params:{ id: id}})
       .then(function(res) {
         this.getSavedProducts();
       }.bind(this));
@@ -80,7 +81,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div className="container-fluid">
+      <div >
         <ProductInfoForm
           handleProductAdd={this.addProduct.bind(this)}
           handleTitleInput={this.setTitle.bind(this)}
@@ -97,3 +98,5 @@ export default class App extends React.Component {
     );
   }
 }
+
+export default App;

@@ -2,13 +2,6 @@
 
 > A documented API that provides data endpoints of “requested price” information to retailers and businesses. The data will be collected from a UI that allows online shoppers to receive notifications when their requested product falls below their desired price across three major online retailers.
 
-## Team
-
-  - __Product Owner__: Jason
-  - __Scrum Master__: Diana
-  - __Git Workflow__: Nick
-  - __Software Engineer__: Candice
-
 ## Table of Contents
 
 1. [Usage](#Usage)
