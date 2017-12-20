@@ -13,8 +13,4 @@ let RemoveProductButton = (props) => {
   );
 }
 
-RemoveProductButton.propTypes = {
-  handleButtonClick: React.PropTypes.func.isRequired
-};
-
 export default RemoveProductButton;

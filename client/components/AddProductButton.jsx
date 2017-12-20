@@ -13,8 +13,4 @@ let AddProductButton = (props) => {
   );
 }
 
-AddProductButton.propTypes = {
-  handleButtonClick: React.PropTypes.func.isRequired
-};
-
 export default AddProductButton;

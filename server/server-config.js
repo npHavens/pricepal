@@ -1,16 +1,27 @@
 const express = require('express');
 const app = express();
-const sampleData = require('./lib/sample-data.js')
-const cors = require('cors');
 const bodyParser = require('body-parser');
-const Product = require('./app/models/Product.js');
+const webpack = require('webpack');
+const webpackDevMiddleware = require('webpack-dev-middleware');
 
-app.use(cors());
-app.options('*', cors());
+const Product = require('./models/Product.js');
+
+let config = process.env.NODE_ENV = 'production' ? require('../webpack.dev.js') : config = require('../webpack.prod.js');
+
+const compiler = webpack(config);
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(__dirname));
 
-app.get('/', function(req, res) {
+const webpackDevMiddlewareInstance = webpackDevMiddleware( compiler, {
+  publicPath: config.output.publicPath
+});
+
+app.use(webpackDevMiddlewareInstance);
+
+
+app.get('/products', function(req, res) {
   Product.getAll(function(array) {
     res.status(200).send(array);
   });

@@ -13,9 +13,4 @@ let UpdateProductButton = (props) => {
   );
 }
 
-
-UpdateProductButton.propTypes = {
-  handleButtonClick: React.PropTypes.func.isRequired
-};
-
 export default UpdateProductButton;
