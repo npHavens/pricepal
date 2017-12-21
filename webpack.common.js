@@ -5,7 +5,7 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: {
-    app: './client/src/index.jsx',
+    app: ['./client/src/index.jsx', 'webpack-hot-middleware/client'],
   },
   module: {
     rules: [
