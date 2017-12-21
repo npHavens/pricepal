@@ -5,6 +5,7 @@ const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 
+
 const Product = require('./models/Product.js');
 
 let config = process.env.NODE_ENV = 'production' ? require('../webpack.dev.js') : config = require('../webpack.prod.js');
@@ -21,6 +22,7 @@ const webpackDevMiddlewareInstance = webpackDevMiddleware( compiler, {
 
 app.use(webpackDevMiddlewareInstance);
 app.use(webpackHotMiddleware(compiler));
+
 
 
 app.get('/products', function(req, res) {
