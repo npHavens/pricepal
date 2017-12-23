@@ -82,6 +82,7 @@ class App extends React.Component {
   render() {
     return (
       <div >
+      <div>TEST2</div>
         <ProductInfoForm
           handleProductAdd={this.addProduct.bind(this)}
           handleTitleInput={this.setTitle.bind(this)}

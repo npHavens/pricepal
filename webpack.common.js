@@ -5,7 +5,7 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: {
-    app: ['./client/src/index.jsx', 'webpack-hot-middleware/client']
+    app: ['react-hot-loader/patch', './client/src/index.jsx', 'webpack-hot-middleware/client']
   },
   module: {
     rules: [
@@ -25,7 +25,8 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['env','react']
+            presets: ['env','react'],
+            plugins: ['react-hot-loader/babel']
           }
         }
       },
@@ -43,7 +44,8 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['env','react']
+            presets: ['env','react'],
+            plugins: ['react-hot-loader/babel']
           }
         }
       },
@@ -81,6 +83,6 @@ module.exports = {
       title: 'VitaPal',
       template: './index.html',
     }),
-    new webpack.HotModuleReplacementPlugin(),
+    new webpack.HotModuleReplacementPlugin()
   ],
 }
