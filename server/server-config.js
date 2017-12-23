@@ -22,8 +22,6 @@ const webpackDevMiddlewareInstance = webpackDevMiddleware( compiler, {
 app.use(webpackDevMiddlewareInstance);
 app.use(webpackHotMiddleware(compiler));
 
-
-
 app.get('/products', function(req, res) {
   Product.getAll(function(array) {
     res.status(200).send(array);

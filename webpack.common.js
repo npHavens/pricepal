@@ -31,12 +31,12 @@ module.exports = {
         }
       },
       {
-      test: /\.html$/,
-      exclude: /node_modules/,
-      loader: 'html-loader',
-      query: {
-        interpolate: 'require'
-      }
+        test: /\.html$/,
+        exclude: /node_modules/,
+        loader: 'html-loader',
+        query: {
+          interpolate: 'require'
+        }
       },
       {
         test: /\.js$/,
