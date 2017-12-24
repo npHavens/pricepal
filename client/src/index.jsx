@@ -1,12 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import configureStore from './store/configureStore';
+import { Provider } from 'react-redux';
 import App from '../components/App.jsx';
 import { AppContainer } from 'react-hot-loader';
+
+const store = configureStore();
 
 const render = Component => {
   ReactDOM.render(
     <AppContainer>
-      <Component />
+      <Provider store={store}>
+        <Component />
+      </Provider>
     </AppContainer>,
     document.getElementById('root'),
   )

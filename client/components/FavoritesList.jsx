@@ -1,29 +1,59 @@
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as productActions from '../src/actions/productActions.js';
+import PropTypes from 'prop-types';
 import React from 'react';
 import FavoriteEntry from './FavoriteEntry.jsx';
 
-const FavoritesList = (props) => {
-  return (
-    <div>
-    <label htmlFor="favorites">
-      {JSON.stringify(props.products.length) + ' '}
-      Saved Product{props.products.length > 1  || props.products.length === 0 ? 's' : ''}
-    </label>
-    <table className="table table-hover" id="favorites">
-      <tbody>
-        { props.products.map((product, i) => {
-          return <FavoriteEntry
-            product={product}
-            key={i}
-            handleProductUpdate = {props.handleProductUpdate}
-            handleProductDelete = {props.handleProductDelete}
-          />
-        })
-      }
-      </tbody>
-    </table>
-  </div>
-);
+class FavoritesList extends React.Component {
+  constructor (props) {
+    super(props);
+  }
 
-}
+  componentDidMount() {
+    this.props.productActions.fetchStuff();
+  }
 
-export default FavoritesList;
+  render() {
+    return (
+      <div>
+        <label htmlFor="favorites">
+          {JSON.stringify(this.props.products.length) + ' '}
+          Saved Product{this.props.products.length > 1  || this.props.products.length === 0 ? 's' : ''}
+        </label>
+        <table className="table table-hover" id="favorites">
+          <tbody>
+            {this.props.products.map((product, i) => {
+              return <FavoriteEntry
+                product={product}
+                key={i}
+                handleProductUpdate = {this.props.handleProductUpdate}
+                handleProductDelete = {this.props.handleProductDelete}
+              />
+            })
+          }
+          </tbody>
+        </table>
+      </div>
+    );
+  }
+};
+
+FavoritesList.propTypes = {
+  productActions: PropTypes.object,
+  products: PropTypes.array
+};
+
+const mapStateToProps = state => {
+  return {
+    products: state.products
+  }
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    productActions: bindActionCreators(productActions, dispatch)
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(FavoritesList);

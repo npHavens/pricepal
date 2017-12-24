@@ -19,7 +19,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getSavedProducts();
+    //this.getSavedProducts();
   }
 
   setTitle(title) {
