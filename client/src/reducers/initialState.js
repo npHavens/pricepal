@@ -1,3 +1,6 @@
 export default {
-  products: []
+  products: [],
+  currentProductTitle: '',
+  currentProductUrl: '',
+  currentQty: 0
 }

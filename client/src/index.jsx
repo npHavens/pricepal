@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/configureStore';
 import { Provider } from 'react-redux';
-import App from '../components/App.jsx';
+import App from '../components/container/App.jsx';
 import { AppContainer } from 'react-hot-loader';
 
 const store = configureStore();
@@ -21,8 +21,8 @@ const render = Component => {
 render(App);
 
 if (module.hot) {
-  module.hot.accept('../components/App.jsx', () => {
-    const NextApp = require('../components/App.jsx').default;
+  module.hot.accept('../components/container/App.jsx', () => {
+    const NextApp = require('../components/container/App.jsx').default;
     render(NextApp);
   })
 };

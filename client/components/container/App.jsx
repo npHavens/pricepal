@@ -1,25 +1,22 @@
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as productActions from '../../src/actions/productActions.js';
 import React from 'react';
-import TitleInput from './TitleInput.jsx';
-import UrlInput from './UrlInput.jsx';
-import ProductInfoForm from './ProductInfoForm.jsx';
-import FavoritesList from './FavoritesList.jsx'
+import TitleInput from '../TitleInput.jsx';
+import UrlInput from '../UrlInput.jsx';
+import ProductInfoForm from '../ProductInfoForm.jsx';
+import FavoritesList from '../FavoritesList.jsx'
 import axios from 'axios';
-import '../css/styles.css';
+import '../../css/styles.css';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      products: [],
-      currentProductTitle: '',
-      currentProductUrl: '',
-      currentQty: 0
-    };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     //this.getSavedProducts();
+    this.props.productActions.getProducts();
   }
 
   setTitle(title) {
@@ -38,16 +35,6 @@ class App extends React.Component {
     this.setState({
       currentQty: qty
     });
-  }
-
-  getSavedProducts() {
-    //setTimeout(this.getSavedProducts.bind(this), 10000);
-    console.log('Getting saved products');
-    axios.get('http://localhost:3000/products')
-    .then(function(res) {
-      //console.log(res.data)
-      this.setState({products: res.data});
-    }.bind(this))
   }
 
   addProduct() {
@@ -89,9 +76,9 @@ class App extends React.Component {
           handleUrlInput={this.setUrl.bind(this)}
           handleQtyInput={this.setQty.bind(this)}
         />
-        {!this.state.products ? <p>Loading</p> :
+        {!this.props.products ? <p>Loading</p> :
           <FavoritesList
-            products={this.state.products}
+            products={this.props.products}
             handleProductUpdate={this.updateProduct.bind(this)}
             handleProductDelete={this.removeProduct.bind(this)}
         />}
@@ -100,4 +87,16 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    products: state.products
+  }
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    productActions: bindActionCreators(productActions, dispatch)
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -1,6 +1,3 @@
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import * as productActions from '../src/actions/productActions.js';
 import PropTypes from 'prop-types';
 import React from 'react';
 import FavoriteEntry from './FavoriteEntry.jsx';
@@ -8,10 +5,6 @@ import FavoriteEntry from './FavoriteEntry.jsx';
 class FavoritesList extends React.Component {
   constructor (props) {
     super(props);
-  }
-
-  componentDidMount() {
-    this.props.productActions.fetchStuff();
   }
 
   render() {
@@ -39,10 +32,10 @@ class FavoritesList extends React.Component {
   }
 };
 
-FavoritesList.propTypes = {
-  productActions: PropTypes.object,
-  products: PropTypes.array
-};
+// FavoritesList.propTypes = {
+//   productActions: PropTypes.object,
+//   products: PropTypes.array
+// };
 
 const mapStateToProps = state => {
   return {
@@ -56,4 +49,4 @@ const mapDispatchToProps = dispatch => {
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(FavoritesList);
+export default FavoritesList;
