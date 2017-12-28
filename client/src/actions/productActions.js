@@ -1,18 +1,27 @@
 import axios from 'axios';
 
-export function receiveProducts(data) {
+const receiveProducts = (data) => {
   console.log('Receiving products')
   return {type: 'RECEIVE_PRODUCTS', products: data.data};
 }
 
-export function getProducts() {
+const getProducts = () => {
   return dispatch => {
     console.log('Getting saved products');
-    axios.get('http://localhost:3000/products')
-    .then(function(res) {
-      console.log(res.data)
+    axios.get('/products')
+    .then((res) => {
       dispatch(receiveProducts(res))
     })
 
   };
 }
+
+const setProductInfo = (field, value) => {
+  return {type: 'SET_PRODUCT_INFO', field: field, value: value}
+}
+
+const addProduct = () => {
+
+}
+
+export {receiveProducts, getProducts};

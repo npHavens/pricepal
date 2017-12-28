@@ -26,17 +26,17 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['env','react'],
-            plugins: ['react-hot-loader/babel']
+            plugins: ['react-hot-loader/babel', 'transform-object-rest-spread']
           }
         }
       },
       {
-        test: /\.html$/,
-        exclude: /node_modules/,
-        loader: 'html-loader',
-        query: {
-          interpolate: 'require'
-        }
+      test: /\.html$/,
+      exclude: /node_modules/,
+      loader: 'html-loader',
+      query: {
+        interpolate: 'require'
+      }
       },
       {
         test: /\.js$/,
@@ -45,7 +45,7 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['env','react'],
-            plugins: ['react-hot-loader/babel']
+            plugins: ['react-hot-loader/babel', 'transform-object-rest-spread']
           }
         }
       },

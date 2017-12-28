@@ -10,9 +10,6 @@ import axios from 'axios';
 import '../../css/styles.css';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   componentWillMount() {
     //this.getSavedProducts();
@@ -69,7 +66,6 @@ class App extends React.Component {
   render() {
     return (
       <div >
-      <div>TEST2</div>
         <ProductInfoForm
           handleProductAdd={this.addProduct.bind(this)}
           handleTitleInput={this.setTitle.bind(this)}
@@ -88,8 +84,12 @@ class App extends React.Component {
 }
 
 const mapStateToProps = state => {
+  console.log('STATE:', state)
   return {
-    products: state.products
+    products: state.products,
+    currentProductTitle: state.currentProductTitle,
+    currentProductUrl: state.currentProductUrl,
+    currentQty: state.currentQty
   }
 };
 
