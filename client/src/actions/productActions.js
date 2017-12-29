@@ -12,16 +12,15 @@ const getProducts = () => {
     .then((res) => {
       dispatch(receiveProducts(res))
     })
-
   };
 }
 
-const setProductInfo = (field, value) => {
-  return {type: 'SET_PRODUCT_INFO', field: field, value: value}
+const setProductName = (name) => {
+  return {type: 'SET_PRODUCT_NAME', productName: name}
 }
 
 const addProduct = () => {
 
 }
 
-export {receiveProducts, getProducts};
+export {receiveProducts, getProducts, setProductName};

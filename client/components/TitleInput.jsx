@@ -1,4 +1,5 @@
 import React from 'react';
+import * as productActions from '../src/actions/productActions.js';
 
 export default class TitleInput extends React.Component {
   constructor(props) {
@@ -9,10 +10,7 @@ export default class TitleInput extends React.Component {
   }
 
   handleInputChange(e) {
-    this.props.handleTitleInputChange(e.target.value);
-    this.setState({
-      value: e.target.value
-    });
+    productActions.setProductName(e.target.value);
   }
 
   render() {
@@ -26,8 +24,6 @@ export default class TitleInput extends React.Component {
           <input
             className="form-control"
             id="title-input"
-            type="text"
-            value={this.state.value}
             onChange={this.handleInputChange.bind(this)}
           />
         </div>
