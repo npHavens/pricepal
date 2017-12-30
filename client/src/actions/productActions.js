@@ -19,6 +19,10 @@ const setProductName = (name) => {
   return {type: 'SET_PRODUCT_NAME', productName: name}
 }
 
+const setProductUrl = (url) => {
+  return {type: 'SET_PRODUCT_URL', productUrl: url}
+}
+
 const addProduct = () => {
 
 }
