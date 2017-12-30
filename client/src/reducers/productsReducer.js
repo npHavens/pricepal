@@ -1,6 +1,6 @@
 import initialState from './initialState';
 
-const products = (state = initialState.currentProductTitle, action) => {
+const products = (state = initialState.products, action) => {
   switch (action.type) {
     case 'RECEIVE_PRODUCTS':
       console.log('RECEIVE_PRODUCTS Action')

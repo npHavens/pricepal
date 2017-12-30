@@ -1,6 +1,6 @@
 import initialState from './initialState';
 
-const newProduct = (state = initialState, action) => {
+const newProduct = (state = initialState.currentProductTitle, action) => {
   switch (action.type) {
     case 'SET_PRODUCT_NAME':
       let newState = action.productName;
