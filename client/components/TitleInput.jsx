@@ -3,24 +3,16 @@ import { bindActionCreators } from 'redux';
 import * as productActions from '../src/actions/productActions.js';
 import { connect } from 'react-redux';
 
-class TitleInput extends React.Component {
-
-  render() {
-    return (
-      <div className="form-group row">
-        <label
-          className="control-label col-sm-2"
-          htmlFor="title-input"
-        >Title</label>
-        <div className="col-sm-8">
-          <input
-            name="name"
-            id="title-input"
-            onChange={this.props.handleChange}
-          />
-        </div>
-      </div>);
-  }
-}
+const TitleInput = ({ handleChange }) => (
+  <div>
+    <label htmlFor="title-input">Title</label>
+    <div>
+      <input
+        name="name"
+        onChange={handleChange}
+      />
+    </div>
+  </div>
+);
 
 export default TitleInput;
