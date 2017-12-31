@@ -1,6 +1,6 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
-import * as productActions from '../../src/actions/productListActions.js';
+import * as NewProductActions from '../../src/actions/NewProductActions.js';
 import { connect } from 'react-redux';
 import TitleInput from '../TitleInput.jsx';
 import UrlInput from '../UrlInput.jsx';
@@ -16,7 +16,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    productActions: bindActionCreators(productActions, dispatch)
+    productActions: bindActionCreators(NewProductActions, dispatch)
   }
 };
 

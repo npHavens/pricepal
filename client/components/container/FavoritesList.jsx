@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as productActions from '../../src/actions/productListActions.js';
+import * as productListActions from '../../src/actions/productListActions.js';
 import ProductList from '../ProductList.jsx';
 
 const mapStateToProps = ({ products }) => {
@@ -12,7 +12,7 @@ const mapStateToProps = ({ products }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    productActions: bindActionCreators(productActions, dispatch)
+    productActions: bindActionCreators(productListActions, dispatch)
   }
 };
 
