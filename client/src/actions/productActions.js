@@ -15,7 +15,7 @@ const getProducts = () => (dispatch, getState) => {
 
 const setInfo = (infoObj) => {
   console.log('setting product name')
-  return {type: 'SET_PRODUCT_INFO', value: infoObj}
+  return {type: 'SET_PRODUCT_INFO', info: infoObj}
 }
 
 const setNewProductInfo = (event) => (dispatch, getState) => {

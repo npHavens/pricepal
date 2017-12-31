@@ -4,12 +4,6 @@ import * as productActions from '../src/actions/productActions.js';
 import { connect } from 'react-redux';
 
 class TitleInput extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: ''
-    };
-  }
 
   render() {
     return (
@@ -22,24 +16,11 @@ class TitleInput extends React.Component {
           <input
             name="name"
             id="title-input"
-            onChange={this.props.productActions.setNewProductInfo}
+            onChange={this.props.handleChange}
           />
         </div>
       </div>);
   }
 }
 
-const mapStateToProps = state => {
-  console.log('STATE:', state)
-  return {
-    state
-  }
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    productActions: bindActionCreators(productActions, dispatch)
-  }
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(TitleInput);
+export default TitleInput;

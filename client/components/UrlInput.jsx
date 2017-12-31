@@ -24,11 +24,10 @@ export default class UrlInput extends React.Component {
         >Url</label>
         <div className="col-sm-8">
           <input
-            className="form-control"
+            name="url"
             id="url-input"
             type="text"
-            value={this.state.value}
-            onChange={this.handleInputChange.bind(this)}
+            onChange={this.props.handleChange}
           />
         </div>
       </div>);

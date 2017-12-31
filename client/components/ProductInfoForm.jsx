@@ -1,26 +1,20 @@
 import React from 'react';
+import { bindActionCreators } from 'redux';
+import * as productActions from '../src/actions/productActions.js';
+import { connect } from 'react-redux';
 import TitleInput from './TitleInput.jsx';
 import UrlInput from './UrlInput.jsx';
 import QtyInput from './QtyInput.jsx';
 import AddProductButton from './AddProductButton.jsx';
 
-export default class ProductInfoForm extends React.Component {
-  constructor(props) {
-    //console.log(props)
-    super(props);
-    this.state = {
-    };
-  }
+const ProductInfoForm = ({ productActions }) => (
+  <form>
+    <h3>Enter Product Info</h3>
+    <TitleInput handleChange={productActions.setNewProductInfo}/>
+    <UrlInput handleChange={productActions.setNewProductInfo}/>
+    <QtyInput handleChange={productActions.setNewProductInfo}/>
+    <AddProductButton/>
+  </form>
+);
 
-  render() {
-    return (
-      <form className= "container-fluid form-horizontal">
-        <h3 id="form-title" className="row">Enter Product Info</h3>
-        <TitleInput  />
-        <UrlInput handleUrlInputChange={this.props.handleUrlInput}/>
-        <QtyInput handleQtyInputChange={this.props.handleQtyInput}/>
-        <AddProductButton handleButtonClick={this.props.handleProductAdd}/>
-      </form>
-    );
-  }
-}
+export default ProductInfoForm;

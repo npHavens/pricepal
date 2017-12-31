@@ -1,10 +1,16 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import FavoriteEntry from './FavoriteEntry.jsx';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as productActions from '../../src/actions/productActions.js';
+import FavoriteEntry from '../FavoriteEntry.jsx';
 
 class FavoritesList extends React.Component {
   constructor (props) {
     super(props);
+  }
+
+  componentWillMount () {
+   this.props.productActions.getProducts();
   }
 
   render() {
@@ -49,4 +55,4 @@ const mapDispatchToProps = dispatch => {
   }
 };
 
-export default FavoritesList;
+export default connect(mapStateToProps, mapDispatchToProps)(FavoritesList);

@@ -24,11 +24,10 @@ export default class QtyInput extends React.Component {
         >Quantity Purchased</label>
         <div className="col-sm-2">
           <input
-            className="form-control"
+            name="qty"
             id="qty-input"
             type="text"
-            value={this.state.value}
-            onChange={this.handleInputChange.bind(this)}
+            onChange={this.props.handleChange}
           />
         </div>
       </div>);
