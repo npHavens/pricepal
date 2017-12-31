@@ -16,7 +16,7 @@ export default class ProductInfoForm extends React.Component {
     return (
       <form className= "container-fluid form-horizontal">
         <h3 id="form-title" className="row">Enter Product Info</h3>
-        <TitleInput  handleTitleInputChange={this.props.handleTitleInput}/>
+        <TitleInput  />
         <UrlInput handleUrlInputChange={this.props.handleUrlInput}/>
         <QtyInput handleQtyInputChange={this.props.handleQtyInput}/>
         <AddProductButton handleButtonClick={this.props.handleProductAdd}/>

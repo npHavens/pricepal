@@ -87,9 +87,9 @@ const mapStateToProps = state => {
   console.log('STATE:', state)
   return {
     products: state.products,
-    currentProductTitle: state.currentProductTitle,
-    currentProductUrl: state.currentProductUrl,
-    currentQty: state.currentQty
+    // currentProductTitle: state.currentProductTitle,
+    // currentProductUrl: state.currentProductUrl,
+    // currentQty: state.currentQty
   }
 };
 

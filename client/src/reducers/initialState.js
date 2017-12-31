@@ -1,6 +1,8 @@
 export default {
   products: [],
-  currentProductTitle: '',
-  currentProductUrl: '',
-  currentQty: 0
+  currentProduct: {
+    name: '',
+    url: '',
+    qty: ''
+  }
 }
