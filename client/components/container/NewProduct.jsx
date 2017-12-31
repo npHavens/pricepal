@@ -9,7 +9,6 @@ import AddProductButton from '../AddProductButton.jsx';
 import ProductInfoForm from '../ProductInfoForm.jsx';
 
 const mapStateToProps = state => {
-  console.log(state)
   return {
     currentProduct: state.newProduct
   }
