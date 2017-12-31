@@ -3,10 +3,10 @@ import * as productActions from '../src/actions/productActions.js';
 
 const AddProductButton = (props) => {
   return (
-    <div
+    <button
         id="add-product"
         onClick={props.handleClick}
-      >Add Product</div>
+      >Add Product</button>
   );
 }
 

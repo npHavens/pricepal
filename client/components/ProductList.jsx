@@ -18,9 +18,9 @@ class ProductList extends React.Component {
             {this.props.products.map((product, i) => {
               return <FavoriteEntry
                 product={product}
-                key={i}
+                key={product.id}
                 handleProductUpdate = {this.props.handleProductUpdate}
-                handleProductDelete = {this.props.handleProductDelete}
+                handleProductDelete = {this.props.productActions.removeProduct}
               />
             })
           }

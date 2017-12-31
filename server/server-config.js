@@ -41,10 +41,12 @@ app.put('/products', function(req, res) {
 });
 
 app.delete('/products', function(req, res) {
-  let productId = +req.url[req.url.length - 1];
+  let productId = req.query.id;
+  console.log(req.query)
+  //console.log(productId)
 
   Product.delete(productId, function(array) {
-    res.status(200).send(array);
+    res.send(array);
   })
 });
 
