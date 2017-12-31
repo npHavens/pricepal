@@ -49,6 +49,14 @@ const removeProduct = (event) => (dispatch, getState) => {
   });
 }
 
+const updateProduct = (event) => (dispatch, getState) => {
+  console.log('Updating Product with ID:', event.target.id);
+  axios.put('/products', {id: event.target.id})
+  .then(function(res) {
+    dispatch(getProducts());
+  });
+}
+
 
 export {
   receiveProducts,
@@ -56,5 +64,6 @@ export {
   setNewProductInfo,
   setInfo,
   addProduct,
-  removeProduct
+  removeProduct,
+  updateProduct
 };

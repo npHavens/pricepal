@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as productActions from '../../src/actions/productActions.js';
+import * as productActions from '../../src/actions/productListActions.js';
 import ProductList from '../ProductList.jsx';
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ products }) => {
   return {
-    products: state.products
+    products: products
   }
 };
 

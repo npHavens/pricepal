@@ -19,7 +19,7 @@ class ProductList extends React.Component {
               return <FavoriteEntry
                 product={product}
                 key={product.id}
-                handleProductUpdate = {this.props.handleProductUpdate}
+                handleProductUpdate = {this.props.productActions.updateProduct}
                 handleProductDelete = {this.props.productActions.removeProduct}
               />
             })

@@ -1,6 +1,4 @@
 import React from 'react';
-import { bindActionCreators } from 'redux';
-import * as productActions from '../src/actions/productActions.js';
 import { connect } from 'react-redux';
 
 const TitleInput = ({ handleChange }) => (

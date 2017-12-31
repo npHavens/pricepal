@@ -1,6 +1,6 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
-import * as productActions from '../../src/actions/productActions.js';
+import * as productActions from '../../src/actions/productListActions.js';
 import { connect } from 'react-redux';
 import TitleInput from '../TitleInput.jsx';
 import UrlInput from '../UrlInput.jsx';

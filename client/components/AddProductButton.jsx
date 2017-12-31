@@ -1,5 +1,5 @@
 import React from 'react';
-import * as productActions from '../src/actions/productActions.js';
+import { connect } from 'react-redux';
 
 const AddProductButton = (props) => {
   return (
