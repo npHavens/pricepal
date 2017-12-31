@@ -13,7 +13,7 @@ const ProductInfoForm = ({ productActions }) => (
     <TitleInput handleChange={productActions.setNewProductInfo}/>
     <UrlInput handleChange={productActions.setNewProductInfo}/>
     <QtyInput handleChange={productActions.setNewProductInfo}/>
-    <AddProductButton/>
+    <AddProductButton handleClick={productActions.addProduct}/>
   </form>
 );
 

@@ -22,15 +22,17 @@ const setNewProductInfo = (event) => (dispatch, getState) => {
   dispatch(setInfo({[event.target.name]: event.target.value}))
 }
 
-
-const setProductUrl = (url) => {
-  return {type: 'SET_PRODUCT_URL', productUrl: url}
+const addProduct = (event) => (dispatch, getState) => {
+    console.log('Adding Product')
+    const productObj = getState().newProduct;
+    axios.post('/products',
+      {
+        title: productObj.name,
+        url: productObj.url,
+        qtyPurchased: Number(productObj.qty)
+      }).then(function(res) {
+          dispatch(getProducts());
+      });
 }
 
-
-
-const addProduct = () => {
-
-}
-
-export {receiveProducts, getProducts, setNewProductInfo, setInfo};
+export {receiveProducts, getProducts, setNewProductInfo, setInfo, addProduct};
