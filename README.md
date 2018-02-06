@@ -1,5 +1,5 @@
-# Budget Basket
-
+# Vita Pal
+  A supplement quantity tracker for health minded consumers
 ## Table of Contents
 
 1. [Usage](#Usage)
