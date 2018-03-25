@@ -1,7 +1,5 @@
-# Budget Basket
-
-> A documented API that provides data endpoints of “requested price” information to retailers and businesses. The data will be collected from a UI that allows online shoppers to receive notifications when their requested product falls below their desired price across three major online retailers.
-
+# Vita Pal
+  A supplement quantity tracker for health minded consumers
 ## Table of Contents
 
 1. [Usage](#Usage)
@@ -18,12 +16,6 @@
 
 ## Requirements
 
-- Node 0.10.x
-- Redis 2.6.x
-- Postgresql 9.1.x
-- etc
-- etc
-
 ## Development
 
 ### Installing Dependencies
@@ -31,9 +23,7 @@
 From within the root directory:
 
 ```sh
-sudo npm install -g bower
 npm install
-bower install
 ```
 
 ### Roadmap
