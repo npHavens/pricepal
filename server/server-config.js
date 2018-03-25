@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const webpack = require('webpack');
 const webpackHotMiddleware = require('webpack-hot-middleware');
+const webpackDevMiddleware = require('webpack-dev-middleware');
 
 const Product = require('./models/Product.js');
 
