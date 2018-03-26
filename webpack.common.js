@@ -26,7 +26,7 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['env','react'],
-            plugins: ['react-hot-loader/babel', 'transform-object-rest-spread']
+            plugins: ['react-hot-loader/babel', 'transform-object-rest-spread', 'syntax-dynamic-import']
           }
         }
       },
@@ -45,7 +45,7 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['env','react'],
-            plugins: ['react-hot-loader/babel', 'transform-object-rest-spread']
+            plugins: ['react-hot-loader/babel', 'transform-object-rest-spread', 'syntax-dynamic-import']
           }
         }
       },
